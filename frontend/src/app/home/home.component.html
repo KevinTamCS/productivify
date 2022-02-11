@@ -1,0 +1,14 @@
+<h1>Welcome to Productivify</h1>
+<h2>You are currently logged {{(isLoggedIn$ | async) ? 'in' : 'out'}}.</h2>
+
+<ng-container *ngIf="!(isLoggedIn$ | async); else logOutButton">
+  <button (click)='login()'>
+    Log In
+  </button>
+</ng-container>
+
+<ng-template #logOutButton>
+  <button (click)='logout()'>
+    Log Out
+  </button>
+</ng-template>
