@@ -1,0 +1,10 @@
+// Ensures main content stretches to the bottom of the page
+.main-content {
+  min-height: calc(100vh - 72px);
+}
+
+@media (min-width: 576px) {
+  .main-content {
+    min-height: calc(100vh - 80px);
+  }
+}
