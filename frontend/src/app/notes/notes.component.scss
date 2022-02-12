@@ -40,8 +40,16 @@
 }
 
 .no-note-selected {
-  text-align: center;
-  padding-top: 4rem;
+  height: calc(100vh - 164px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+
+  button {
+    margin-top: 1rem;
+  }
 }
 
 @media (min-width: 992px) {

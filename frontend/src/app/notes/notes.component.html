@@ -44,7 +44,11 @@
       ></notes-note>
 
       <div *ngIf="!currentNote" class="no-note-selected">
-        No note selected.
+        <div>No note selected.</div>
+        <button mat-flat-button color="primary" (click)="addNote()">
+          <mat-icon class="add-icon" aria-label="Add Note">add</mat-icon>
+          <span>New Note</span>
+        </button>
       </div>
     </mat-card>
   </div>
