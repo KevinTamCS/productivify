@@ -1,0 +1,21 @@
+<div class="nav-items">
+  <div class="main-items">
+    <a mat-button routerLink="/notes" (click)="closeSidenav()">Notes</a>
+    <a mat-button routerLink="/tasks" (click)="closeSidenav()">Tasks</a>
+  </div>
+
+  <div class="auth-items">
+    <ng-container
+      *ngIf="isLoggedIn$ | async; then loggedInButtons; else loggedOutButtons"
+    ></ng-container>
+  </div>
+</div>
+
+<ng-template #loggedInButtons>
+  <button mat-button (click)="closeSidenav()">Log Out</button>
+</ng-template>
+
+<ng-template #loggedOutButtons>
+  <a mat-button routerLink="/auth/login" (click)="closeSidenav()">Log In</a>
+  <a mat-button routerLink="/auth/signup" (click)="closeSidenav()">Sign Up</a>
+</ng-template>

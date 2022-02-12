@@ -1,0 +1,24 @@
+.navbar {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  color: white;
+  text-decoration: none;
+}
+
+.links {
+  display: none;
+}
+
+@media (min-width: 576px) {
+  .links {
+    display: flex;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+}

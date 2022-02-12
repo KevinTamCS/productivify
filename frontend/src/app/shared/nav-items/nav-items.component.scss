@@ -1,0 +1,44 @@
+.nav-items {
+  display: flex;
+  flex-direction: column;
+  min-width: 15rem;
+  padding: 1rem;
+}
+
+.main-items,
+.auth-items {
+  display: flex;
+  flex-direction: column;
+
+  button:not(:last-child),
+  a:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.auth-items {
+  margin-top: 1rem;
+}
+
+@media (min-width: 576px) {
+  .nav-items {
+    flex-direction: row;
+    min-width: unset;
+    padding: unset;
+  }
+
+  .main-items,
+  .auth-items {
+    display: unset;
+
+    button:not(:last-child),
+    a:not(:last-child) {
+      margin-bottom: 0;
+    }
+  }
+
+  .auth-items {
+    margin-top: 0;
+    margin-left: 1rem;
+  }
+}

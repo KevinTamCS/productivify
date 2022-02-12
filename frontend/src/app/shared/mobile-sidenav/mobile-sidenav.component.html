@@ -1,0 +1,13 @@
+<mat-sidenav-container>
+  <mat-sidenav
+    position="end"
+    [opened]="isSidenavOpen$ | async"
+    (closed)="closeSidenav()"
+  >
+    <shared-nav-items></shared-nav-items>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
