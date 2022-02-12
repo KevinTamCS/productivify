@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Really Delete Note?</h1>
+
+<div mat-dialog-content>
+  Are you sure you want to delete the note <strong>"{{data.noteName}}"</strong>? This action cannot be undone!
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button color="warn" [mat-dialog-close]="true">Yes</button>
+  <button mat-button [mat-dialog-close]="false" cdkFocusInitial>No</button>
+</div>

@@ -1,0 +1,31 @@
+.viewer-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+.name {
+  display: flex;
+  align-items: center;
+}
+
+.actions {
+  margin-left: 1rem;
+}
+
+.content-container {
+  height: calc(100vh - 240px);
+}
+
+.editor {
+  height: 100%;
+}
+
+.preview {
+  overflow-y: auto;
+  max-height: calc(100vh - 240px);
+}

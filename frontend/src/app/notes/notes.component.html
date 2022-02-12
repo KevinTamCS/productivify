@@ -1,0 +1,51 @@
+<div class="header">
+  <h1>Notes</h1>
+
+  <button mat-flat-button color="primary" (click)="addNote()">
+    <mat-icon class="add-icon" aria-label="Add Note">add</mat-icon>
+    <span>New Note</span>
+  </button>
+</div>
+
+<div class="row">
+  <div class="col col-12 col-lg-3 notes-list-container">
+    <mat-card class="notes-list">
+      <mat-selection-list
+        *ngIf="notes.length > 0"
+        (selectionChange)="onNoteSwitched($event)"
+        [multiple]="false"
+      >
+        <mat-list-option
+          class="note-list-item"
+          *ngFor="let note of notes" [value]="note.id"
+          [selected]="currentNote?.id === note.id"
+        >
+          <div class="nli-name">
+            {{ note.name }}
+          </div>
+          <div class="nli-last-modified">
+            {{ note.lastModified | date: 'short' }}
+          </div>
+        </mat-list-option>
+      </mat-selection-list>
+
+      <div *ngIf="notes.length < 1">
+        You have no notes. Click "New Note" to create one.
+      </div>
+    </mat-card>
+  </div>
+
+  <div class="col col-12 col-lg-9">
+    <mat-card class="note-contents">
+      <notes-note
+        *ngIf="currentNote"
+        [note]="currentNote"
+        (noteChangedEvent)="onNoteChanged($event)"
+      ></notes-note>
+
+      <div *ngIf="!currentNote" class="no-note-selected">
+        No note selected.
+      </div>
+    </mat-card>
+  </div>
+</div>

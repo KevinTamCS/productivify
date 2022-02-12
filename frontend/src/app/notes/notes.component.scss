@@ -1,0 +1,51 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  h1 {
+    margin-bottom: 0;
+  }
+
+  .add-icon {
+    margin-right: 0.25rem;
+  }
+}
+
+.notes-list-container {
+  margin-bottom: 1rem;
+}
+
+.notes-list {
+  overflow-y: auto;
+  max-height: calc(100vh - 164px);
+}
+
+.note-list-item {
+  margin-bottom: 1rem;
+
+  .nli-name {
+    font-size: 1rem;
+  }
+
+  .nli-last-modified {
+    font-size: 0.8rem;
+    color: gray;
+  }
+}
+
+.note-contents {
+  max-height: calc(100vh - 164px);
+}
+
+.no-note-selected {
+  text-align: center;
+  padding-top: 4rem;
+}
+
+@media (min-width: 992px) {
+  .notes-list-container {
+    margin-bottom: initial;
+  }
+}

@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Rename Note</h1>
+
+<form #f="ngForm" (ngSubmit)="submitRenameForm(f)">
+  <div mat-dialog-content>
+    <mat-form-field appearance="outline">
+      <mat-label>Note Name</mat-label>
+      <input
+        matInput
+        name="newNoteName"
+        type="text"
+        [(ngModel)]="model.newNoteName"
+        #newNoteName="ngModel"
+        required
+      >
+      <mat-error *ngIf="newNoteName.errors?.['required']">
+        Note name is required.
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button type="submit" color="primary">Save</button>
+    <button mat-button (click)="closeDialog()">Cancel</button>
+  </div>
+</form>

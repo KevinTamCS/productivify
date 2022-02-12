@@ -1,0 +1,73 @@
+<ng-container>
+  <div class="viewer-header">
+    <div class="name">
+      <h2>{{ model.name }}</h2>
+
+      <div class="actions">
+        <button mat-icon-button color="primary" title="Rename Note" aria-label="Rename Note" (click)="renameNote()">
+          <mat-icon>drive_file_rename_outline</mat-icon>
+        </button>
+
+        <button mat-icon-button color="primary" title="Download Note" aria-label="Download Note"
+                (click)="downloadNote()">
+          <mat-icon>download</mat-icon>
+        </button>
+
+        <button mat-icon-button color="warn" title="Delete Note" aria-label="Delete Note" (click)="deleteNote()">
+          <mat-icon>delete_forever</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div>
+      <button
+        mat-icon-button
+        color="primary" title="View Note Only" aria-label="View Note Only"
+        (click)="currentViewType = NoteViewType.ViewOnly"
+      >
+        <mat-icon>article</mat-icon>
+      </button>
+
+      <button
+        mat-icon-button
+        color="primary" title="View and Edit Note" aria-label="View and Edit Note"
+        (click)="currentViewType = NoteViewType.ViewAndEdit"
+      >
+        <mat-icon>vertical_split</mat-icon>
+      </button>
+
+      <button
+        mat-icon-button
+        color="primary" title="Edit Note Only" aria-label="Edit Note Only"
+        (click)="currentViewType = NoteViewType.EditOnly"
+      >
+        <mat-icon>code</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="row content-container">
+    <div
+      *ngIf="currentViewType === NoteViewType.EditOnly || currentViewType === NoteViewType.ViewAndEdit"
+      class="col"
+      [class.col-sm-6]="currentViewType === NoteViewType.ViewAndEdit"
+    >
+      <ngx-monaco-editor
+        class="editor"
+        [options]="editorOptions"
+        [(ngModel)]="model.text"
+      ></ngx-monaco-editor>
+    </div>
+
+    <div
+      *ngIf="currentViewType === NoteViewType.ViewOnly || currentViewType === NoteViewType.ViewAndEdit"
+      class="col preview"
+      [class.col-sm-6]="currentViewType === NoteViewType.ViewAndEdit"
+    >
+      <markdown
+        [data]="model.text"
+      >
+      </markdown>
+    </div>
+  </div>
+</ng-container>
