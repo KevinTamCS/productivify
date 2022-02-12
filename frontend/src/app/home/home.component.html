@@ -2,13 +2,13 @@
 <h2>You are currently logged {{(isLoggedIn$ | async) ? 'in' : 'out'}}.</h2>
 
 <ng-container *ngIf="!(isLoggedIn$ | async); else logOutButton">
-  <button (click)='login()'>
-    Log In
+  <button mat-flat-button color="primary" (click)="login()">
+    Test Log In
   </button>
 </ng-container>
 
 <ng-template #logOutButton>
-  <button (click)='logout()'>
-    Log Out
+  <button mat-flat-button color="warn" (click)="logout()">
+    Test Log Out
   </button>
 </ng-template>
