@@ -1,14 +1,46 @@
 <h1>Welcome to Productivify</h1>
-<h2>You are currently logged {{(isLoggedIn$ | async) ? 'in' : 'out'}}.</h2>
 
-<ng-container *ngIf="!(isLoggedIn$ | async); else logOutButton">
-  <button mat-flat-button color="primary" (click)="login()">
-    Test Log In
-  </button>
-</ng-container>
+<section class="home-section">
+  <h2>About</h2>
+  <p>
+    Productivify is a suite of integrated mini-apps that helps you to achieve maximum productivity.
+    <br />
+    The application is currently under development, with various features planned for the future.
+  </p>
 
-<ng-template #logOutButton>
-  <button mat-flat-button color="warn" (click)="logout()">
-    Test Log Out
-  </button>
-</ng-template>
+  <h3>Currently Implemented:</h3>
+  <ul>
+    <li>Notes</li>
+  </ul>
+
+  <h3>Planned Features:</h3>
+  <ul>
+    <li>Journal</li>
+    <li>To-Do/Task List</li>
+    <li>Task Time Tracker</li>
+    <li>Pomodoro Timer (Integrates with Time Tracker)</li>
+    <li>Multi-Device Sync</li>
+  </ul>
+</section>
+
+<section class="home-section">
+  <h2>Current Features</h2>
+  <a mat-flat-button color="primary" routerLink="/notes">Notes</a>
+</section>
+
+<section class="home-section">
+  <h2>NgRx Auth State Test</h2>
+  <h3>You are currently logged {{(isLoggedIn$ | async) ? 'in' : 'out'}}.</h3>
+
+  <ng-container *ngIf="!(isLoggedIn$ | async); else logOutButton">
+    <button mat-flat-button color="primary" (click)="login()">
+      Test Log In
+    </button>
+  </ng-container>
+
+  <ng-template #logOutButton>
+    <button mat-flat-button color="warn" (click)="logout()">
+      Test Log Out
+    </button>
+  </ng-template>
+</section>
