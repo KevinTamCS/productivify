@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { authReducer } from 'src/app/core/store/auth/auth.reducer';
+
+import { coreReducer } from './store/core/core.reducer';
+import { authReducer } from './store/auth/auth.reducer';
 
 
 @NgModule({
@@ -10,6 +12,7 @@ import { authReducer } from 'src/app/core/store/auth/auth.reducer';
   imports: [
     CommonModule,
     StoreModule.forRoot({
+      core: coreReducer,
       auth: authReducer
     }),
     StoreDevtoolsModule.instrument({
