@@ -1,0 +1,93 @@
+<h1>Sign Up</h1>
+
+<form class="auth-form" #f="ngForm" (ngSubmit)="submitSignUpForm(f)">
+  <mat-form-field appearance="outline">
+    <mat-label>First Name</mat-label>
+    <input
+      matInput
+      name="firstName"
+      type="text"
+      autocomplete="given-name"
+      [disabled]="isSigningUp"
+      [(ngModel)]="model.firstName"
+      #firstName="ngModel"
+      required
+    >
+    <mat-error *ngIf="firstName.errors?.['required']">
+      First name is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Last Name</mat-label>
+    <input
+      matInput
+      name="lastName"
+      type="text"
+      autocomplete="family-name"
+      [disabled]="isSigningUp"
+      [(ngModel)]="model.lastName"
+      #lastName="ngModel"
+      required
+    >
+    <mat-error *ngIf="lastName.errors?.['required']">
+      Last name is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      name="email"
+      type="email"
+      autocomplete="email"
+      [disabled]="isSigningUp"
+      [(ngModel)]="model.email"
+      #email="ngModel"
+      email
+      required
+    >
+    <mat-error *ngIf="email.errors?.['required']">
+      Email is required.
+    </mat-error>
+    <mat-error *ngIf="email.errors?.['email']">
+      Email must be a valid email.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input
+      matInput
+      name="password"
+      type="password"
+      autocomplete="new-password"
+      placeholder="Between 12-100 characters long"
+      [disabled]="isSigningUp"
+      [(ngModel)]="model.password"
+      #password="ngModel"
+      minlength="12"
+      maxLength="100"
+      required
+    >
+    <mat-error *ngIf="password.errors?.['required']">
+      Password is required.
+    </mat-error>
+    <mat-error *ngIf="password.errors?.['minlength']">
+      Password must be at least 12 characters long.
+    </mat-error>
+    <mat-error *ngIf="password.errors?.['maxlength']">
+      Password must be at most 100 characters long.
+    </mat-error>
+  </mat-form-field>
+
+  <button
+    mat-flat-button
+    type="submit"
+    color="primary"
+    [disabled]="isSigningUp"
+  >
+    {{ isSigningUp ? 'Signing up...' : 'Sign Up' }}
+  </button>
+</form>

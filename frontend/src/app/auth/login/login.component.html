@@ -1,0 +1,58 @@
+<h1>Log In</h1>
+
+<form class="auth-form" #f="ngForm" (ngSubmit)="submitLogInForm(f)">
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      name="email"
+      type="email"
+      autocomplete="username"
+      [disabled]="isLoggingIn"
+      [(ngModel)]="model.email"
+      #email="ngModel"
+      email
+      required
+    >
+    <mat-error *ngIf="email.errors?.['required']">
+      Email is required.
+    </mat-error>
+    <mat-error *ngIf="email.errors?.['email']">
+      Email must be a valid email.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input
+      matInput
+      name="password"
+      type="password"
+      autocomplete="current-password"
+      [disabled]="isLoggingIn"
+      [(ngModel)]="model.password"
+      #password="ngModel"
+      minlength="12"
+      maxLength="100"
+      required
+    >
+    <mat-error *ngIf="password.errors?.['required']">
+      Password is required.
+    </mat-error>
+    <mat-error *ngIf="password.errors?.['minlength']">
+      Password must be at least 12 characters long.
+    </mat-error>
+    <mat-error *ngIf="password.errors?.['maxlength']">
+      Password must be at most 100 characters long.
+    </mat-error>
+  </mat-form-field>
+
+  <button
+    mat-flat-button
+    type="submit"
+    color="primary"
+    [disabled]="isLoggingIn"
+  >
+    {{ isLoggingIn ? 'Logging in...' : 'Log In' }}
+  </button>
+</form>
